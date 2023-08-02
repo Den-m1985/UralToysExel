@@ -1,6 +1,6 @@
 package org.example.window.helper_classes;
 
-import org.example.startProgram.Command;
+import org.example.startProgram.Controller;
 //import org.example.command.Command;
 import org.example.createPathFile.GetPathFile;
 
@@ -21,9 +21,13 @@ public class StartCommand implements ActionListener {
         int i = 0;
         while (i < 2) {
             pathCSV = getPathFile.getPathFile("csv");
-            if (pathCSV != null)
+            if (pathCSV != null) {
                 break;
-            else i++;
+            } else {
+                JOptionPane.showMessageDialog(null, "Не выбран файл csv с SP39");
+                i++;
+
+            }
         }
 
         int j = 0;
@@ -31,7 +35,16 @@ public class StartCommand implements ActionListener {
             pathXLS = getPathFile.getPathFile("xlsx");
             if (pathXLS != null)
                 break;
-            else j++;
+            else {
+                JOptionPane.showMessageDialog(null, "Не выбран файл xlsx поставщика");
+                j++;
+            }
+        }
+
+
+
+        if (pathCSV == null && pathXLS == null) {
+            throw new RuntimeException("Не выбраны файлы для работы");
         }
 
         System.out.println();
@@ -40,15 +53,13 @@ public class StartCommand implements ActionListener {
         System.out.println(pathXLS);
         System.out.println();
 
-
-
         try {
-            new Command().command(pathCSV, pathXLS);
+            new Controller(pathCSV, pathXLS);
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-        JOptionPane.showMessageDialog(null,"Успешно");
+        JOptionPane.showMessageDialog(null, "Успешно");
     }
 
 }

@@ -13,11 +13,9 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class Command {
+public class Controller {
 
-
-    public void command(String pathCSV, String pathXLS) throws IOException, CsvException {
-
+    public Controller(String pathCSV, String pathXLS) throws IOException, CsvException  {
         long start = System.nanoTime();
 
         PrintMenu printMenu = new PrintMenu();
@@ -35,10 +33,10 @@ public class Command {
         int cellName = 2;
         int cellEXL = 4;  // Cell with articular
         int cellCode = 5;  // код товара
-        int cellPriceToOrder = 7;  // price со скидкой
+        int cellPriceXLS = 6;  // price без скидки
         int minToOrder = 8; // миним кол-во для заказа
-        int cellPoint = 9;  //номер строки куда мы записываем
-        FindArticularXLSX findArticularXLSX = new FindArticularXLSX(pathXLS, cellEXL, cellCode, cellPoint, numberSheet);
+        int cellWriteItem = 9;  //номер строки куда мы записываем
+        FindArticularXLSX findArticularXLSX = new FindArticularXLSX(pathXLS, cellEXL, cellCode,cellPriceXLS, cellWriteItem, numberSheet);
         Workbook workbook = findArticularXLSX.findCellEXEL(data);
 
         // write xls. new path "Price" in downloads

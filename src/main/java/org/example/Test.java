@@ -1,7 +1,7 @@
 package org.example;
 
 
-import org.example.startProgram.Command;
+import org.example.startProgram.Controller;
 
 public class Test {
 
@@ -22,45 +22,14 @@ public class Test {
 
 
         try {
-            new Command().command(pathCSV, pathXLS);
+            new Controller(pathCSV, pathXLS);
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
 
-//        String a = "У572 (241444)";
-//        String b = "У572";
-//        String c = "241444";
-//        boolean d = checkArticular(b, a, c);
-
 
     }
-
-//    private static boolean checkArticular(String articularEXL, String articularCSV, String codeExl) {
-//        if (articularCSV.contains(" ")) {
-//            String[] divided = articularCSV.split(" ");
-//            String csvCode = divided[1];
-//            if (divided[1].contains("("))
-//                csvCode = csvCode.substring(1, csvCode.length() - 1);  // отсекаем скобки
-//            if (articularEXL.equals(divided[0]) && codeExl.equals(csvCode)) {
-//                return true;
-//            }
-//            String up = divided[0].toUpperCase();
-//            if (up.equals(articularEXL) && codeExl.equals(csvCode)) {
-//                return true;
-//            }
-//            String down = divided[0].toLowerCase();
-//            if (down.equals(articularEXL) && codeExl.equals(csvCode)) {
-//                return true;
-//            }
-//        }
-//        else if (articularEXL.equals(articularCSV) && codeExl.equals(articularCSV)) {
-//            return true;
-//        }
-//
-//        return false;
-//    }
-
 
 
 }

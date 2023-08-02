@@ -9,12 +9,14 @@ import java.awt.*;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
+import static org.example.Main.encoding;
+
 
 public class Window extends JFrame {
 
     public Window() throws UnsupportedEncodingException {
-        setTitle("     Bolshe Podarkov");
-        setSize(500, 500);
+        setTitle("     Ural Toys");
+        setSize(600, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -22,9 +24,9 @@ public class Window extends JFrame {
         textArea.setBackground(new Color(220, 220, 220));  // цвет фона
 
         //Печатает текст в окно
-        String STDOUT_ENCODING = "windows-1251";
-        PrintStream printStream = new PrintStream(new OutputStreamEncoding(textArea, STDOUT_ENCODING),
-                true, STDOUT_ENCODING);
+        //String encoding = "windows-1251";
+        PrintStream printStream = new PrintStream(new OutputStreamEncoding(textArea, encoding),
+                true, encoding);
         // re-assigns standard output stream and error output stream
         System.setOut(printStream);  // вывод текста на экран с кнопки старт
         System.setErr(printStream); // вывод текста ошибок на экран с кнопки старт
@@ -52,7 +54,7 @@ public class Window extends JFrame {
         constraints.insets = new Insets(10, 10, 10, 10);
 
         System.out.println("Нажимай кнопку. Откроется окно, по умолчанию Рабочий стол.");
-        System.out.println("У тебя 2 попытки для открытия файла csv.");
+        System.out.println("У тебя 2 попытки для открытия файла");
         System.out.println();
     }
 

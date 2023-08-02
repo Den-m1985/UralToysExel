@@ -5,12 +5,16 @@ public class PrintMenu {
     public static final String TEXTFILEOPEN = "Файл исходник:";
 
     public void printFinish(int time){
-        System.out.println();
-        System.out.println("У С П Е Ш Н О");
+        String finishText1 = "\n" +
+                "У С П Е Ш Н О \n";
+        System.out.println(finishText1);
         System.out.println("Время выполнения: " + time + "сек");
-        System.out.println("Оля молодец");
-        System.out.println();
-        System.out.println("Попей чайку");
+
+        String finishText2 = "Оля молодец\n" +
+                "\n" +
+                "Попей чайку";
+        System.out.println(finishText2);
+
     }
 
 }
