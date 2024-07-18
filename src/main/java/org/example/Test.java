@@ -1,35 +1,36 @@
 package org.example;
 
-
+import org.example.createPathFile.GetPathFile;
 import org.example.startProgram.Controller;
+
 
 public class Test {
 
     public static void main(String[] args) {
 
+        String[] csv = {"csv"};
+        String csv2 = openWindow(csv);
 
-        //String pathCSV = "C:" + System.lineSeparator() + "Users" + System.lineSeparator() + "User" +
-        //        System.lineSeparator() + " Downloads" + System.lineSeparator() + "vendor578451_2023-07-18.csv";
-        String pathCSV = "C:\\Users\\User\\Downloads\\vendor578451_2023-07-18.csv";
-        String pathXLS = "C:\\Users\\User\\Downloads\\price-ural-toys-18.07.2023_14-58.xlsx";
-        //String pathXLS = "C:\\Users\\User\\Downloads\\Книга1.xlsx";
-
-        System.out.println();
-        System.out.println("Файлы исходники:");
-        System.out.println(pathCSV);
-        System.out.println(pathXLS);
-        System.out.println();
-
+        String[] xlsx = {"xlsx"};
+        String xlsx2 = openWindow(xlsx);
 
         try {
-            new Controller(pathCSV, pathXLS);
-
+            new Controller(csv2, xlsx2);
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            ex.printStackTrace();
         }
-
-
     }
 
+    public static String openWindow(String[] extension) {
+        int j = 0;
+        String path = null;
+        while (j < 2) {
+            path = new GetPathFile().getPathFile(extension[0]);
+            if (path != null)
+                break;
+            else j++;
+        }
+        return path;
+    }
 
 }

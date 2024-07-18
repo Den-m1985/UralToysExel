@@ -1,6 +1,7 @@
 package org.example.csvRead;
 
 import com.opencsv.exceptions.CsvException;
+import org.example.createPathFile.GetPathFile;
 import org.example.csvRead.csv.*;
 
 import java.io.IOException;
@@ -11,7 +12,11 @@ public class TestCSV {
 
     public static void main(String[] args) throws IOException, CsvException {
 
-        String pathCSV = "C:\\Users\\User\\Downloads\\vendor578451_2023-07-18.csv";
+        //String pathCSV = "C:\\Users\\User\\Downloads\\vendor578451_2023-07-18.csv";
+
+        String csv = "csv";
+        String pathCSV = openWindow(csv);
+
 
         StructureCSV goods = new StructureCSV("name", "articular", 1, 2, 3);
 
@@ -35,5 +40,8 @@ public class TestCSV {
 
     }
 
+    public static String openWindow(String extension) {
+        return new GetPathFile().getPathFile(extension);
+    }
 
 }
